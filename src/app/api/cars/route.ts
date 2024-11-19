@@ -6,9 +6,7 @@ export async function GET(request: Request){
     const cars = await getAllDocuments(client, 'cars');
     client.close();
 
-    return NextResponse.json({
-        data: cars
-    });
+    return NextResponse.json(cars);
 }
 
 export async function POST(request: Request) {
@@ -17,9 +15,7 @@ export async function POST(request: Request) {
     const car = await insertDocument(client, 'cars', newCar);
     client.close();
   
-    return NextResponse.json({
-        data: car
-    });
+    return NextResponse.json(car);
   }
 
 export async function DELETE(request: Request){
@@ -28,9 +24,7 @@ export async function DELETE(request: Request){
   const car = await deleteDocument(client, 'cars', id);
   client.close();
 
-  return NextResponse.json({
-    data: car
-});
+  return NextResponse.json(car);
 }
 
 export async function PUT(request: Request) {

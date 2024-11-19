@@ -8,17 +8,19 @@ interface Car {
 }
 
 interface CarCardProps {
-  car: Car; 
+  car: Car;
+  onDelete: () => void; 
+  onUpdate: () => void;  
 }
-export const CarCard: React.FC<CarCardProps> = ({car}) => {
+export const CarCard: React.FC<CarCardProps> = ({car, onDelete, onUpdate}) => {
 
   return (
     <div >
       <h3 >{car.model}</h3>
       <p><strong>Number:</strong> {car.number}</p>
       <p><strong>Color:</strong> {car.color}</p>
-      <button >Delete</button>
-      <button >Update</button>
+      <button onClick={onDelete}>Delete</button>
+      <button onClick={onUpdate}>Update</button>
     </div>
   )
 }
